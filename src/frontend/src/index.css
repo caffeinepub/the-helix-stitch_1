@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    /* Warm cream/light brown background */
+    --background: 0.93 0.028 60;
+    /* Deep dark brown text */
+    --foreground: 0.2 0.04 45;
+    --card: 0.95 0.022 58;
+    --card-foreground: 0.2 0.04 45;
+    --popover: 0.96 0.018 58;
+    --popover-foreground: 0.2 0.04 45;
+    /* Warm medium brown for primary */
+    --primary: 0.45 0.08 55;
+    --primary-foreground: 0.97 0.01 60;
+    --secondary: 0.88 0.025 58;
+    --secondary-foreground: 0.2 0.04 45;
+    --muted: 0.88 0.022 58;
+    --muted-foreground: 0.48 0.03 50;
+    --accent: 0.85 0.04 50;
+    --accent-foreground: 0.2 0.04 45;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.86 0.025 58;
+    --input: 0.86 0.025 58;
+    --ring: 0.45 0.08 55;
+    --chart-1: 0.45 0.08 55;
+    --chart-2: 0.55 0.07 45;
+    --chart-3: 0.65 0.06 40;
+    --chart-4: 0.75 0.05 55;
+    --chart-5: 0.35 0.06 50;
+    --sidebar: 0.95 0.022 58;
+    --sidebar-foreground: 0.2 0.04 45;
+    --sidebar-primary: 0.45 0.08 55;
+    --sidebar-primary-foreground: 0.97 0.01 60;
+    --sidebar-accent: 0.88 0.025 58;
+    --sidebar-accent-foreground: 0.2 0.04 45;
+    --sidebar-border: 0.86 0.025 58;
+    --sidebar-ring: 0.45 0.08 55;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Lato", system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+}
+
+.font-script {
+  font-family: "Dancing Script", cursive;
+}
+
+.font-serif {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.font-sans {
+  font-family: "Lato", system-ui, sans-serif;
+}
