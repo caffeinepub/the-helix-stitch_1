@@ -7,7 +7,7 @@ import { categories } from "../data/products";
 const shopCategories = categories.filter((c) => c.id !== "custom");
 
 const WHATSAPP_URL = `https://wa.me/919664757318?text=${encodeURIComponent(
-  "Hello! I'd like to place an order from The Helix Stitch. Please help me!",
+  "Hello! I'd like to place an order from The Spiral Stitch. Please help me!",
 )}`;
 
 export default function ShopPage() {

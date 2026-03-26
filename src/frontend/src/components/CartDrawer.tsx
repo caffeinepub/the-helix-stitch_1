@@ -14,7 +14,7 @@ function buildWhatsAppUrl(
     (i) => `• ${i.name} x${i.quantity} — ₹${i.price * i.quantity}`,
   );
   const message = [
-    "Hello! I'd like to place an order from The Helix Stitch:",
+    "Hello! I'd like to place an order from The Spiral Stitch:",
     "",
     ...lines,
     "",
