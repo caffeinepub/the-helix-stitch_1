@@ -24,6 +24,47 @@ const categoryDescriptions: Record<string, string> = {
     "Charming handcrafted crochet purses, clutches, and crossbody bags for every occasion.",
 };
 
+function CollectionBanner({ name }: { name: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="col-span-full w-full flex flex-col items-center py-8 px-4 rounded-2xl mb-2"
+      style={{
+        background:
+          "linear-gradient(135deg, rgba(180,200,240,0.25) 0%, rgba(200,220,255,0.4) 100%)",
+        border: "1.5px solid rgba(100,140,220,0.3)",
+      }}
+    >
+      <div className="flex items-center gap-4 w-full max-w-md">
+        <div
+          className="flex-1 h-px"
+          style={{
+            background: "linear-gradient(to right, transparent, #4a6fa5)",
+          }}
+        />
+        <p
+          className="font-serif text-lg sm:text-xl tracking-widest text-center whitespace-nowrap"
+          style={{ color: "#2a4a7a" }}
+        >
+          {name}
+        </p>
+        <div
+          className="flex-1 h-px"
+          style={{
+            background: "linear-gradient(to left, transparent, #4a6fa5)",
+          }}
+        />
+      </div>
+      <div
+        className="w-20 h-0.5 mt-2 rounded-full"
+        style={{ background: "#4a6fa5" }}
+      />
+    </motion.div>
+  );
+}
+
 function ProductCard({ product }: { product: Product }) {
   const [imgIndex, setImgIndex] = useState(0);
   const images = product.images ?? [];
@@ -112,6 +153,14 @@ function ProductCard({ product }: { product: Product }) {
           >
             {product.emoji} {product.name}
           </h3>
+          {product.collection && (
+            <p
+              className="font-sans text-xs italic mt-0.5"
+              style={{ color: "#4a6fa5" }}
+            >
+              From {product.collection}
+            </p>
+          )}
           <p
             className="font-sans text-sm mt-1 leading-relaxed"
             style={{ color: "oklch(0.47 0.025 55)" }}
@@ -147,6 +196,15 @@ export default function CategoryPage() {
     (p) => p.category === category && p.images && p.images.length > 0,
   );
   const hasProducts = categoryProducts.length > 0;
+
+  const collections = Array.from(
+    new Set(
+      categoryProducts
+        .filter((p) => p.collection)
+        .map((p) => p.collection as string),
+    ),
+  );
+  const ungroupedProducts = categoryProducts.filter((p) => !p.collection);
 
   const whatsappUrl = `https://wa.me/919664757318?text=${encodeURIComponent(
     `Hello! I'd like to order from The Spiral Stitch — ${cat?.label ?? category} category. Please help me!`,
@@ -227,7 +285,20 @@ export default function CategoryPage() {
               {description}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {categoryProducts.map((product) => (
+              {collections.map((collectionName) => (
+                <>
+                  <CollectionBanner
+                    key={`banner-${collectionName}`}
+                    name={collectionName}
+                  />
+                  {categoryProducts
+                    .filter((p) => p.collection === collectionName)
+                    .map((product) => (
+                      <ProductCard key={product.id} product={product} />
+                    ))}
+                </>
+              ))}
+              {ungroupedProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>

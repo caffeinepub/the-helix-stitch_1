@@ -13,6 +13,7 @@ export type Product = {
   featured?: boolean;
   bgColor: string;
   images?: string[];
+  collection?: string;
 };
 
 export const products: Product[] = [
@@ -163,13 +164,14 @@ export const products: Product[] = [
   // Purses
   {
     id: "pu-crystal-01",
-    name: "Royal Blue Crystal Bag",
+    name: "Azura – Royal Blue Crystal Bag",
     description:
-      "A stunning royal blue crystal crochet bag, handcrafted with intricate beadwork — perfect for festive occasions.",
+      "A handwoven royal blue crystal clutch — where the spiral of craft meets the depth of the ocean.",
     price: 0,
     category: "purses",
     emoji: "💎",
     bgColor: "#e8eef8",
+    collection: "The Sapphire Collection",
     images: [
       "/assets/uploads/72acb89e-2af0-45d9-beab-d2328a1344c7-019d28f7-3d5e-76fc-920e-7b304b696968-1.png",
       "/assets/uploads/9d52011f-3eb1-44e3-979c-4ab25454bc12-019d28f7-3e28-745b-9a2c-d8726a90d517-2.png",

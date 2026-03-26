@@ -2,7 +2,7 @@ import { Star } from "lucide-react";
 import { motion } from "motion/react";
 
 const GOOGLE_FORM_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSdUna7kEdqu-Gpb3QWh2F08o-uGFhuO037VKxEuNhVzn7XuBA/viewform?embedded=true";
+  "https://docs.google.com/forms/d/e/1FAIpQLSdAKcKFh1ST76pA8Sj96uCEuJ8kCOw2judZhzLMxkGIZaLI8g/viewform?embedded=true";
 
 const whyCustomItems = [
   { icon: "🎨", text: "Made just for you — no two pieces are alike" },
